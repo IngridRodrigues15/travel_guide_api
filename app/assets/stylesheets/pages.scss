@@ -1,3 +1,59 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono');
+
+
+$white: #fff;
+$black: #000;
+$neon-blue: #40FCF1;
+
+$text-color-light: $white;
+$button-background-color: $black;
+$highlight: $neon-blue;
+
+
+body {
+  font-family: 'Fira Mono', serif !important; 
+  margin-top: 50px;
+}
+
+/** Header **/
+.navbar {
+  background-color: $black !important;
+  color: $text-color-light;
+  margin-bottom: 0;
+  padding-top: 5px;
+  border: none;
+  a {
+    color: $text-color-light;
+    padding-right: 20px;
+  }
+  a:visited  {
+    color: $text-color-light;
+  }
+  a:hover {
+    color: $highlight;
+  }
+  .span6 {
+    display: inline-block;
+  }
+  .span6.login-box {
+    float: right;
+    padding-top: 40px;
+  }
+  .logo {
+    img {
+      width: 132px;
+      display: inline-block;
+    }
+  }
+  .highlight-line {
+    background-color: $highlight;
+    width: 100%;
+    height: 5px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
