@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @user_place.place %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_place.user %>
+</p>
+
+<p>
+  <strong>Wanna go:</strong>
+  <%= @user_place.wanna_go %>
+</p>
+
+<p>
+  <strong>Already being there:</strong>
+  <%= @user_place.already_being_there %>
+</p>
+
+<%= link_to 'Edit', edit_user_place_path(@user_place) %> |
+<%= link_to 'Back', user_places_path %>

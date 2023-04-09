@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Places</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Place</th>
+      <th>User</th>
+      <th>Wanna go</th>
+      <th>Already being there</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_places.each do |user_place| %>
+      <tr>
+        <td><%= user_place.place %></td>
+        <td><%= user_place.user %></td>
+        <td><%= user_place.wanna_go %></td>
+        <td><%= user_place.already_being_there %></td>
+        <td><%= link_to 'Show', user_place %></td>
+        <td><%= link_to 'Edit', edit_user_place_path(user_place) %></td>
+        <td><%= link_to 'Destroy', user_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User place', new_user_place_path %>

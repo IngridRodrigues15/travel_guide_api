@@ -1,0 +1,13 @@
+
+oiii
+
+      <%= form_for @user_trip do |f| %>
+
+        <div class="form-group">
+          <%= f.label :description, "Em qual cidade  você está ?" %>
+          <%= f.select :city_id, @cities.collect { |city| [city.name, city.id] } %>
+        </div>
+
+        <%= f.submit "Enviar" %>
+      <% end %>
+ 

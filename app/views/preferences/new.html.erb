@@ -1,0 +1,24 @@
+<h1>New Preference</h1>
+
+# <%= render 'form' %>
+
+
+
+oiii
+
+      <%= form_for @preference do |f| %>
+
+        <div class="form-group">
+        <%= f.label :description, "Selecione suas preferencias ?" %>
+
+        <%= f.select(:categories, @categories.collect {|p| [ p.name, p.id ] }, 
+        { :prompt => "Please select"}, 
+        { :multiple => true, :size => 5 }) %>
+        </div>
+
+        <%= f.submit "Enviar" %>
+      <% end %>
+ 
+
+
+<%= link_to 'Back', preferences_path %>
