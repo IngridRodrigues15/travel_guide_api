@@ -35,7 +35,7 @@ gem 'bigdecimal', '1.3.5'
 gem 'pg', '~> 0.20.0'
 
 gem 'devise'
-
+gem 'bootstrap-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
