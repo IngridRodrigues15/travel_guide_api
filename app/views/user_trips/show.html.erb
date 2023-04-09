@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_trip.user %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user_trip.city %>
+</p>
+
+<%= link_to 'Edit', edit_user_trip_path(@user_trip) %> |
+<%= link_to 'Back', user_trips_path %>

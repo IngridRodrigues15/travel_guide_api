@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place_id: 
+  user_id: 
+  wanna_go: false
+  already_being_there: false
+
+two:
+  place_id: 
+  user_id: 
+  wanna_go: false
+  already_being_there: false

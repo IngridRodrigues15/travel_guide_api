@@ -5,6 +5,8 @@ class CreateCity < ActiveRecord::Migration
       t.string :state
       t.string :country
       t.string :location_info
+
+      t.timestamps null: false
     end
   end
 end
