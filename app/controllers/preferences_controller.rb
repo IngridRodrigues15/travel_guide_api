@@ -27,6 +27,9 @@ class PreferencesController < ApplicationController
   def create
     byebug
 
+    require 'json'
+    teste = JSON.parse(params)
+
     params[:category_ids].each_with_index do |id, index|
       category = Category.find(category_id)
       current_user.preferences.create(category: category, position: index + 1)
