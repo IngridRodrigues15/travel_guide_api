@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
 
   has_many :user_trip, dependent: :destroy
-
+  has_many :preferences
 end

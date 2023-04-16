@@ -1,24 +1,18 @@
-<h1>New Preference</h1>
-
-# <%= render 'form' %>
+<h3>Escolha os lugares que prefere</h3>
 
 
+  <%= form_for @preference do |f| %>
 
-oiii
+    <div class="form-group">
 
-      <%= form_for @preference do |f| %>
+      <ul id="sortable">
+        <% @categories.each do |category| %>
+          <li class="ui-state-default"><%= category.name %></li>
+        <% end %>
+      </ul>
+    </div>
 
-        <div class="form-group">
-        <%= f.label :description, "Selecione suas preferencias ?" %>
-
-        <%= f.select(:categories, @categories.collect {|p| [ p.name, p.id ] }, 
-        { :prompt => "Please select"}, 
-        { :multiple => true, :size => 5 }) %>
-        </div>
-
-        <%= f.submit "Enviar" %>
-      <% end %>
- 
+    <%= f.submit "Enviar" %>
+  <% end %>
 
 
-<%= link_to 'Back', preferences_path %>

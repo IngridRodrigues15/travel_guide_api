@@ -15,6 +15,7 @@ class PreferencesController < ApplicationController
   # GET /preferences/new
   def new
     @preference = Preference.new
+    @categories = Category.all
   end
 
   # GET /preferences/1/edit
@@ -24,18 +25,22 @@ class PreferencesController < ApplicationController
   # POST /preferences
   # POST /preferences.json
   def create
-    @preference = Preference.new(preference_params)
-    @categories = Category.all
+    byebug
 
-    respond_to do |format|
-      if @preference.save
-        format.html { redirect_to @preference, notice: 'Preference was successfully created.' }
-        format.json { render :show, status: :created, location: @preference }
-      else
-        format.html { render :new }
-        format.json { render json: @preference.errors, status: :unprocessable_entity }
-      end
+    params[:category_ids].each_with_index do |id, index|
+      category = Category.find(category_id)
+      current_user.preferences.create(category: category, position: index + 1)
     end
+
+    # respond_to do |format|
+    #   if @preference.save
+    #     format.html { redirect_to @preference, notice: 'Preference was successfully created.' }
+    #     format.json { render :show, status: :created, location: @preference }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @preference.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /preferences/1
