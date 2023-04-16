@@ -19,6 +19,29 @@ body {
   margin-top: 50px;
 }
 
+input[type="submit"],
+.btn {
+  background-color: $neon-blue;
+  border-color: $neon-blue;
+  padding: 6px 12px;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input:focus-visible {
+  outline: none;
+  border-color: $neon-blue;
+}
+
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
 /** Header **/
 .navbar {
   background-color: $black !important;
@@ -26,6 +49,9 @@ body {
   margin-bottom: 0;
   padding-top: 5px;
   border: none;
+  .navbar-text {
+    margin-right: 0;
+  }
   a {
     color: $text-color-light;
     padding-right: 20px;
@@ -56,4 +82,11 @@ body {
     margin-right: 0px;
     margin-left: 0px;
   }
+}
+
+/** Preferences table **/
+.preferences-tables > tbody > tr > td {
+  border: 1px solid $neon-blue;
+  background-color: $white;
+  padding: 15px;
 }

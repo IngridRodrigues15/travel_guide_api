@@ -1,24 +1,58 @@
-<h1>New Preference</h1>
-
-# <%= render 'form' %>
+<h3>Escolha os lugares que prefere</h3>
 
 
 
-oiii
-
-      <%= form_for @preference do |f| %>
-
-        <div class="form-group">
-        <%= f.label :description, "Selecione suas preferencias ?" %>
-
-        <%= f.select(:categories, @categories.collect {|p| [ p.name, p.id ] }, 
-        { :prompt => "Please select"}, 
-        { :multiple => true, :size => 5 }) %>
-        </div>
-
-        <%= f.submit "Enviar" %>
-      <% end %>
- 
+    <div class="form-group">
 
 
-<%= link_to 'Back', preferences_path %>
+    <table class="display preferences-tables table table-striped table-hover table-bordered dt-responsive responsive nowrap" cellspacing="0" width="100%">
+
+      <tbody id="sortable">
+        <% @categories.each do |category| %>
+
+          <tr data-category-id="<%= category.id %>" data-category-name="<%= category.name %>">
+            <td><%= category.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <button class='btn float-right' id='submit-preferences'> Continuar >> </button>
+
+    </div>
+
+
+
+  <script>
+  $(function() {
+    $('#sortable').sortable({
+      update: function( event, ui ) {
+
+        var order = $("#sortable").sortable('serialize');
+        
+
+        $( "#submit-preferences" ).click(function() {
+
+          var data = [];
+          $("#sortable tr").each(function(i, el) {
+            data.push({
+              id: $(el).attr("data-category-id"),
+              name: $(el).attr("data-category-name")
+            });
+          });
+
+          $.ajax({
+              data: {categories: data },
+              dataType:'json',
+              type: 'POST',
+              url: "/preferences",
+          });
+          window.location.replace("/pages/home");
+
+        });
+
+
+      }
+    });
+  });
+  </script>
