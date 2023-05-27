@@ -90,3 +90,26 @@ input:focus-visible {
   background-color: $white;
   padding: 15px;
 }
+
+/** Home page **/
+
+#home_search {
+  input {
+    height: 40px;
+  }
+  input[type="submit"] {
+    width: 100%;
+    margin: 25px 0;
+  }
+  input[type="number"] {
+    width: 95%;
+  }
+  select {
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 5px;
+    height: 40px;
+  }
+}
+
