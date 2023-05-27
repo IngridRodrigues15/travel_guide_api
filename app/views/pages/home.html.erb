@@ -1,14 +1,23 @@
-<h1>Pages home</h1>
+  <div class="col-md-12">
+    <h1>Qual sua próxima viagem ?</h1>
+  </div>
+
+  <%= form_tag search_path, method: :get, id: "home_search" do %>
+      <div class="col-md-10">
+        <%= label_tag :city, "Cidade" %>
+        <%= select_tag(:city_name, options_for_select(@cities.collect { |city|[city.name, city.name] }, 1)) %>
+      </div>
+      <div class="col-md-2">
+        <%= label_tag :days, "Quantos dias?" %>
+        <%= number_field_tag :days, params[:days] %>
+      </div>
+    
+      <div class="col-md-12">
+        <%= submit_tag "Ver roteiro", name: nil, id: "submit_serch" %>
+      </div>
+  <% end %>
 
 
 
-# <%= link_to "Login", new_user_session_path %>
-# <%= link_to "Cadastro", new_user_registration_path %>
-
-
-<% if current_user %> 
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-else
-<%= link_to "Login", new_user_session_path %>
-<%= link_to  "Cadastro", new_user_registration_path %>
-<% end %> 
+ <h5>To do </h5>
+<h5>box lugares de acordo com preferencias e localização do user</h5>

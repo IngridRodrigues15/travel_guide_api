@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   resources :user_trip, only: [:new, :create]
 
+  get 'search', to: 'search#search', as: 'search'
+
+
 end
